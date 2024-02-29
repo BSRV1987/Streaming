@@ -20,8 +20,8 @@ json_schema = StructType([
 ])
 
 # Define input and output directories
-input_path = "file:///C:/Repos/Streaming/SourceFiles/data/json_files"
-output_path = "file:///C:/Repos/Streaming/SourceFiles/data/csv_files"
+input_path = "./SourceFiles/data/json_files"
+output_path = "./SourceFiles/data/csv_files"
 
 # Read JSON files as a stream
 json_stream_df = spark.readStream \
@@ -41,11 +41,10 @@ flattened_df = json_stream_df.select(
 query = flattened_df.writeStream \
     .format("csv") \
     .outputMode("append") \
+    .option("header", "true") \
     .option("checkpointLocation", "/tmp/checkpoint_location") \
     .option("path", output_path) \
     .start()
 
 # Wait for the streaming query to finish
 query.awaitTermination()
-
-
