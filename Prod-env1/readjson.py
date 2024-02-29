@@ -7,7 +7,6 @@ spark = SparkSession.builder \
     .appName("JSON to CSV Streaming Pipeline") \
     .getOrCreate()
 
-# Define schema for JSON data
 json_schema = StructType([
     StructField("datetime", StringType()),
     StructField("sales", StructType([
@@ -21,8 +20,8 @@ json_schema = StructType([
 ])
 
 # Define input and output directories
-input_path = "file:///SourceFiles/data/json_files"
-output_path = "file:///SourceFiles/data/csv_files"
+input_path = "file:///C:/Repos/Streaming/SourceFiles/data/json_files"
+output_path = "file:///C:/Repos/Streaming/SourceFiles/data/csv_files"
 
 # Read JSON files as a stream
 json_stream_df = spark.readStream \
@@ -48,3 +47,5 @@ query = flattened_df.writeStream \
 
 # Wait for the streaming query to finish
 query.awaitTermination()
+
+
