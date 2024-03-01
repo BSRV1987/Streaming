@@ -13,6 +13,7 @@ checkpoint_location = "/tmp/checkpoint_location_1"
 if os.path.exists(checkpoint_location):
     shutil.rmtree(checkpoint_location)
 
+# Define json structure which is important for readstream
 json_schema = StructType([
     StructField("datetime", StringType()),
     StructField("sales", StructType([
