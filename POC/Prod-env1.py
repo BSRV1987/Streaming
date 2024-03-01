@@ -1,5 +1,4 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import from_json, col
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType
 import os
 import shutil
@@ -26,10 +25,11 @@ json_schema = StructType([
     ]))
 ])
 
-# Define input and output directories
+# Define input and output directories. Can be any cloudstorages like s3, GS or Azure blob
 input_path = "./SourceFiles/data/json_files"
 output_path = "./SourceFiles/data/csv_files"
 
+# Clear output for reruns
 if os.path.exists(output_path):
     shutil.rmtree(output_path)
 
@@ -47,7 +47,7 @@ flattened_df = json_stream_df.select(
     "analytics.impressions"
 )
 
-# Define query to write the flattened data as CSV
+# Define query to write the flattened data as CSV. Used append mode to write increments
 query = flattened_df.writeStream \
     .format("csv") \
     .outputMode("append") \
@@ -56,5 +56,5 @@ query = flattened_df.writeStream \
     .option("path", output_path) \
     .start()
 
-# Wait for the streaming query to finish
+# block until query is terminated, with stop() or with error
 query.awaitTermination()
