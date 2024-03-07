@@ -1,5 +1,5 @@
 # Streaming
-A sample Stream processing pipeline
+A sample Stream processing pipeline using pyspark, which reads csv files that are being generated and transformations are applied on the fly before storing them in parquet file.
 
 # Environment That is recommended
 
