@@ -13,6 +13,8 @@ VisualstudioCode
 
 2. Prod-env2.py --> This job aggregates the values of the columns every 5 seconds by taking the sum of the columns from the files that arrived in the last 5 seconds in delta mode. This has been altered to 5 seconds instead of 5 minutes. With 5 minutes, spark job is writing empty information into parquet files as stream is maintaining intermediate state and have to wait for 5 mins to view the data.
 
+3. main.py --> this is to generate source files on a continuous basis. Press ctrl+c to cancel the execution
+
 # Requirements
 
 Have pyspark library installed on the environment using pip
