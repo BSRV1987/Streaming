@@ -24,21 +24,21 @@ pip install pyspark
 
 # execution instructions
 
-Have 3 seperate Terminals for executing 3 python files.
+Have 3 seperate Terminals for executing 3 python files.<br>
 
-Commands Terminal 1 :
+Commands Terminal 1 :<br>
 
-CD POC
-CD SourceFiles
-python main.py
+CD POC<br>
+CD SourceFiles<br>
+python main.py<br>
 
-Commands Terminal 2 :
+Commands Terminal 2 :<br>
 
-CD POC
-python Prod-env1.py
+CD POC<br>
+python Prod-env1.py<br>
 
 
-Commands Terminal 3 :
+Commands Terminal 3 :<br>
 
-CD POC
-python Prod-env2.py
+CD POC<br>
+python Prod-env2.py<br>
