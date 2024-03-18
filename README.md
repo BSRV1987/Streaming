@@ -38,6 +38,12 @@ CD POC<br>
 python Prod-env1.py<br>
 
 
+
+#Dimensional modelling sample data model
+
+
+![Diagram](./Files/Dimensional_Modelling.drawio)
+
 Commands Terminal 3 :<br>
 
 CD POC<br>
